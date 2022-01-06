@@ -27,26 +27,25 @@ export class AboutComponent implements OnInit {
 
     ngOnInit() {
 
-      // Multivalue Streams
-      // Will continue to emit value overtime, and will never complete
+      //Callback hell, calling a callback in a callback
       document.addEventListener('click', e => {
         console.log(e);
+
+        setTimeout(() => {
+
+          console.log("finished...");
+
+          let counter = 0;
+
+          setInterval(() => {
+            console.log(counter);
+            counter++
+
+          }, 1000)
+
+        }, 3000);
       })
 
-      let counter = 0;
-
-      setInterval(() => {
-        console.log(counter);
-        counter++
-
-      }, 1000)
-
-      // Emits a value and completes
-      setTimeout(() => {
-
-        console.log("finished...");
-
-      }, 3000);
 
     }
 
